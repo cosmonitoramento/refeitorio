@@ -69,6 +69,24 @@
       font-family: 'Arial Black', Arial, sans-serif;
       -webkit-text-stroke: 1px #ffffff;
       text-stroke: 1px #ffffff;
+      line-height: 1.2;
+    }
+    
+    .message::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+      z-index: -1;
+      border-radius: 4px;
+    }
+    
+    /* Estilo para destacar ainda mais os emojis */
+    .message {
+      filter: drop-shadow(0 0 8px rgba(255,255,255,0.8));
     }
     @keyframes stripes {
       from { background-position: 0 0; }
@@ -88,6 +106,7 @@
         letter-spacing: 1.5px;
         -webkit-text-stroke: 0.8px #ffffff;
         text-stroke: 0.8px #ffffff;
+        filter: drop-shadow(0 0 6px rgba(255,255,255,0.8));
       }
       :root {
         --bar-height: 50px;
@@ -99,6 +118,7 @@
         letter-spacing: 1px;
         -webkit-text-stroke: 0.5px #ffffff;
         text-stroke: 0.5px #ffffff;
+        filter: drop-shadow(0 0 4px rgba(255,255,255,0.8));
       }
       :root {
         --bar-height: 40px;
@@ -117,7 +137,7 @@
 <body>
   <main class="wrap">
     <div class="bar">
-      <div class="message">ALIMENTAÇÃO SAUDÁVEL, CORPO E MENTE SAUDÁVEIS! NÃO DESPERDICE COMIDA, SE PRECISAR, PODE REPETIR O PRATO, COM EXCEÇÃO DA PROTEÍNA!</div>
+      <div class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ COM EXCEÇÃO DA PROTEÍNA! 🥩</div>
     </div>
   </main>
 </body>
