@@ -19,9 +19,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #0b1220;
+      background: #ffffff;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      color: #e5e7eb;
+      color: #333333;
     }
     .wrap {
       width: 100%;
@@ -30,7 +30,10 @@
       height: var(--bar-height);
       width: 100%;
       border-radius: var(--radius);
-      box-shadow: 0 10px 26px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.1);
+      box-shadow: 
+        0 15px 35px rgba(0,0,0,.4), 
+        inset 0 0 0 2px rgba(255,255,255,.2),
+        0 5px 15px rgba(0,100,0,.3);
       background-image: repeating-linear-gradient(
         45deg,
         var(--stripe-green) 0,
@@ -45,21 +48,27 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      border: 2px solid rgba(0,100,0,.5);
     }
     .message {
       position: absolute;
       white-space: nowrap;
-      font-weight: bold;
+      font-weight: 900;
       font-size: 24px;
-      color: #000;
+      color: #000000;
       text-shadow: 
-        2px 2px 4px rgba(255,255,255,0.8),
-        -1px -1px 2px rgba(255,255,255,0.6),
-        1px 1px 0px rgba(255,255,255,0.9);
+        3px 3px 0px #ffffff,
+        -2px -2px 0px #ffffff,
+        2px -2px 0px #ffffff,
+        -2px 2px 0px #ffffff,
+        4px 4px 8px rgba(0,0,0,0.3),
+        0px 0px 12px rgba(255,255,255,0.8);
       animation: moveMessage var(--speed) linear infinite;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       text-transform: uppercase;
       font-family: 'Arial Black', Arial, sans-serif;
+      -webkit-text-stroke: 1px #ffffff;
+      text-stroke: 1px #ffffff;
     }
     @keyframes stripes {
       from { background-position: 0 0; }
@@ -76,6 +85,9 @@
     @media (max-width: 768px) {
       .message {
         font-size: 18px;
+        letter-spacing: 1.5px;
+        -webkit-text-stroke: 0.8px #ffffff;
+        text-stroke: 0.8px #ffffff;
       }
       :root {
         --bar-height: 50px;
@@ -84,6 +96,9 @@
     @media (max-width: 480px) {
       .message {
         font-size: 14px;
+        letter-spacing: 1px;
+        -webkit-text-stroke: 0.5px #ffffff;
+        text-stroke: 0.5px #ffffff;
       }
       :root {
         --bar-height: 40px;
