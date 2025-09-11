@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Barra Jirau Energia</title>
+  <title>Barra Jirau Energia - ZERO PAUSA</title>
   <style>
     * {
       box-sizing: border-box;
@@ -27,9 +27,9 @@
     }
     
     :root {
-      --speed: 60s;            /* velocidade mais lenta */
-      --bar-height: 80px;      /* altura da barra aumentada */
-      --radius: 0;             /* sem arredondar para ocupar toda tela */
+      --speed: 90s;            /* velocidade */
+      --bar-height: 80px;      /* altura da barra */
+      --radius: 0;             /* sem arredondar */
     }
     body {
       margin: 0;
@@ -54,7 +54,7 @@
       box-shadow: 
         0 15px 35px rgba(0,0,0,.6), 
         inset 0 0 0 2px rgba(255,255,255,.1);
-      background: #000000; /* Fundo preto sólido */
+      background: #000000;
       position: relative;
       overflow: hidden;
       display: flex;
@@ -62,53 +62,53 @@
       justify-content: center;
       border: 2px solid rgba(0,0,0,.8);
     }
-    .message {
+    
+    /* Container que vai se mover */
+    .scroll-container {
       position: absolute;
+      display: flex;
+      align-items: center;
       white-space: nowrap;
+      /* ANIMAÇÃO CORRETA: Move exatamente metade da largura */
+      animation: scroll var(--speed) linear infinite;
+    }
+    
+    .message-part {
       font-weight: 900;
-      font-size: 70px; /* Letras bem maiores */
-      color: #ffffff; /* Cor branca */
+      font-size: 70px;
+      color: #ffffff;
       text-shadow: 
         2px 2px 4px rgba(0,0,0,0.8),
         0px 0px 8px rgba(255,255,255,0.3);
-      animation: moveMessage var(--speed) linear infinite;
       letter-spacing: 3px;
       text-transform: uppercase;
       font-family: 'Arial Black', Arial, sans-serif;
       line-height: 1.2;
+      padding-right: 500px; /* Espaçamento entre repetições */
     }
     
     .highlight {
-      font-size: 70px; /* Letras ainda maiores para a parte destacada */
-      color: #ffff00; /* Amarelo para destacar */
+      font-size: 70px;
+      color: #ffff00;
       text-shadow: 
         2px 2px 4px rgba(0,0,0,0.9),
         0px 0px 12px rgba(255,255,0,0.5);
     }
     
-    .message::before {
-      content: "";
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      right: -2px;
-      bottom: -2px;
-      background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, transparent 70%);
-      z-index: -1;
-      border-radius: 4px;
+    /* ANIMAÇÃO QUE REALMENTE FUNCIONA */
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); } /* Move apenas metade = loop perfeito */
     }
     
-    @keyframes moveMessage {
-      from { transform: translateX(100vw); }
-      to   { transform: translateX(-100%); }
-    }
     @media (prefers-reduced-motion: reduce) {
-      .message { animation: none; position: static; transform: none; }
+      .scroll-container { animation: none; }
     }
     @media (max-width: 768px) {
-      .message {
+      .message-part {
         font-size: 24px;
         letter-spacing: 2px;
+        padding-right: 100px;
       }
       .highlight {
         font-size: 32px;
@@ -118,9 +118,10 @@
       }
     }
     @media (max-width: 480px) {
-      .message {
+      .message-part {
         font-size: 18px;
         letter-spacing: 1.5px;
+        padding-right: 80px;
       }
       .highlight {
         font-size: 24px;
@@ -142,7 +143,17 @@
 <body>
   <main class="wrap">
     <div class="bar">
-      <div class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</div>
+      <div class="scroll-container">
+        <!-- PRIMEIRA CÓPIA -->
+        <div class="message-part">
+          🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰
+        </div>
+        
+        <!-- SEGUNDA CÓPIA (IDÊNTICA) -->
+        <div class="message-part">
+          🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰
+        </div>
+      </div>
     </div>
   </main>
 </body>
