@@ -27,6 +27,7 @@
     }
     
     :root {
+      --speed: 60s;            /* velocidade mais lenta */
       --bar-height: 80px;      /* altura da barra aumentada */
       --radius: 0;             /* sem arredondar para ocupar toda tela */
     }
@@ -61,68 +62,73 @@
       justify-content: center;
       border: 2px solid rgba(0,0,0,.8);
     }
-    
-    .message-container {
+    .message {
       position: absolute;
       white-space: nowrap;
-      /* Animação controlada por JavaScript */
-    }
-    
-    .message {
-      display: inline-block;
       font-weight: 900;
-      font-size: 75px; /* Letras bem maiores */
+      font-size: 70px; /* Letras bem maiores */
       color: #ffffff; /* Cor branca */
       text-shadow: 
         2px 2px 4px rgba(0,0,0,0.8),
         0px 0px 8px rgba(255,255,255,0.3);
+      animation: moveMessage var(--speed) linear infinite;
       letter-spacing: 3px;
       text-transform: uppercase;
       font-family: 'Arial Black', Arial, sans-serif;
       line-height: 1.2;
-      margin-right: 500px; /* Espaço entre repetições */
     }
     
     .highlight {
-      font-size: 75px;
+      font-size: 70px; /* Letras ainda maiores para a parte destacada */
       color: #ffff00; /* Amarelo para destacar */
       text-shadow: 
         2px 2px 4px rgba(0,0,0,0.9),
         0px 0px 12px rgba(255,255,0,0.5);
     }
     
-    @media (prefers-reduced-motion: reduce) {
-      .message-container { transform: none; }
+    .message::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, transparent 70%);
+      z-index: -1;
+      border-radius: 4px;
     }
     
+    @keyframes moveMessage {
+      from { transform: translateX(100vw); }
+      to   { transform: translateX(-100%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .message { animation: none; position: static; transform: none; }
+    }
     @media (max-width: 768px) {
       .message {
         font-size: 24px;
         letter-spacing: 2px;
-        margin-right: 30px;
       }
       .highlight {
-        font-size: 24px;
+        font-size: 32px;
       }
       :root {
         --bar-height: 60px;
       }
     }
-    
     @media (max-width: 480px) {
       .message {
         font-size: 18px;
         letter-spacing: 1.5px;
-        margin-right: 20px;
       }
       .highlight {
-        font-size: 18px;
+        font-size: 24px;
       }
       :root {
         --bar-height: 50px;
       }
     }
-    
     .bar::after {
       content: "";
       position: absolute;
@@ -136,89 +142,8 @@
 <body>
   <main class="wrap">
     <div class="bar">
-      <!-- Primeiro container -->
-      <div class="message-container" id="container1">
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-      </div>
-      
-      <!-- Segundo container -->
-      <div class="message-container" id="container2">
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-      </div>
+      <div class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</div>
     </div>
   </main>
-
-  <script>
-    // Configurações
-    const SPEED = 1.5; // Velocidade em pixels por frame
-    
-    // Elementos
-    const container1 = document.getElementById('container1');
-    const container2 = document.getElementById('container2');
-    
-    // Posições dos containers
-    let position1 = window.innerWidth;
-    let position2 = window.innerWidth;
-    
-    // Largura do conteúdo (calculada uma vez)
-    let containerWidth = 0;
-    
-    // Flag para controlar qual container está ativo
-    let container1Active = true;
-    
-    function initializeAnimation() {
-      // Calcula largura do conteúdo
-      containerWidth = container1.scrollWidth;
-      
-      // Posição inicial
-      position1 = window.innerWidth;
-      position2 = window.innerWidth + containerWidth; // Segundo container começa após o primeiro
-      
-      // Inicia animação
-      animate();
-    }
-    
-    function animate() {
-      // Move ambos os containers para a esquerda
-      position1 -= SPEED;
-      position2 -= SPEED;
-      
-      // Aplica as transformações
-      container1.style.transform = `translateX(${position1}px)`;
-      container2.style.transform = `translateX(${position2}px)`;
-      
-      // Reset do container 1 quando sair completamente
-      if (position1 <= -containerWidth) {
-        position1 = position2 + containerWidth;
-      }
-      
-      // Reset do container 2 quando sair completamente
-      if (position2 <= -containerWidth) {
-        position2 = position1 + containerWidth;
-      }
-      
-      // Continua a animação
-      requestAnimationFrame(animate);
-    }
-    
-    // Inicia quando carregar
-    window.addEventListener('load', () => {
-      // Pequeno delay para garantir que o DOM está pronto
-      setTimeout(initializeAnimation, 100);
-    });
-    
-    // Reajusta no redimensionamento
-    window.addEventListener('resize', () => {
-      containerWidth = container1.scrollWidth;
-      if (position1 > window.innerWidth * 2) position1 = window.innerWidth;
-      if (position2 > window.innerWidth * 2) position2 = window.innerWidth;
-    });
-  </script>
 </body>
 </html>
-
-
