@@ -27,7 +27,6 @@
     }
     
     :root {
-      --speed: 23000s;            /* velocidade mantida como você quer */
       --bar-height: 80px;      /* altura da barra aumentada */
       --radius: 0;             /* sem arredondar para ocupar toda tela */
     }
@@ -66,7 +65,7 @@
     .message-container {
       position: absolute;
       white-space: nowrap;
-      animation: scrollText var(--speed) linear infinite;
+      /* Animação controlada por JavaScript */
     }
     
     .message {
@@ -81,7 +80,7 @@
       text-transform: uppercase;
       font-family: 'Arial Black', Arial, sans-serif;
       line-height: 1.2;
-              margin-right: 800px; /* Espaço mínimo entre repetições - ZERO tempo vazio */
+      margin-right: 50px; /* Espaço entre repetições */
     }
     
     .highlight {
@@ -92,23 +91,18 @@
         0px 0px 12px rgba(255,255,0,0.5);
     }
     
-    @keyframes scrollText {
-      from { transform: translateX(100vw); }
-      to   { transform: translateX(-100%); }
-    }
-    
     @media (prefers-reduced-motion: reduce) {
-      .message-container { animation: none; position: static; transform: none; }
+      .message-container { transform: none; }
     }
     
     @media (max-width: 768px) {
       .message {
         font-size: 24px;
         letter-spacing: 2px;
-        margin-right: 15px;
+        margin-right: 30px;
       }
       .highlight {
-        font-size: 32px;
+        font-size: 24px;
       }
       :root {
         --bar-height: 60px;
@@ -119,10 +113,10 @@
       .message {
         font-size: 18px;
         letter-spacing: 1.5px;
-        margin-right: 10px;
+        margin-right: 20px;
       }
       .highlight {
-        font-size: 24px;
+        font-size: 18px;
       }
       :root {
         --bar-height: 50px;
@@ -142,763 +136,87 @@
 <body>
   <main class="wrap">
     <div class="bar">
-      <div class="message-container">
+      <!-- Primeiro container -->
+      <div class="message-container" id="container1">
         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
+      </div>
+      
+      <!-- Segundo container -->
+      <div class="message-container" id="container2">
         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-            <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-            <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-            <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-            <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-            <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-            <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-            <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-            <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-            <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-            <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-            <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-            <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-            <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-            <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-            <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-            <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-            <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-            <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-            <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-            <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-            <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-            <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-            <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-            <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-         <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        <span class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</span>
-        
-        
-
       </div>
     </div>
   </main>
+
+  <script>
+    // Configurações
+    const SPEED = 1.5; // Velocidade em pixels por frame
+    
+    // Elementos
+    const container1 = document.getElementById('container1');
+    const container2 = document.getElementById('container2');
+    
+    // Posições dos containers
+    let position1 = window.innerWidth;
+    let position2 = window.innerWidth;
+    
+    // Largura do conteúdo (calculada uma vez)
+    let containerWidth = 0;
+    
+    // Flag para controlar qual container está ativo
+    let container1Active = true;
+    
+    function initializeAnimation() {
+      // Calcula largura do conteúdo
+      containerWidth = container1.scrollWidth;
+      
+      // Posição inicial
+      position1 = window.innerWidth;
+      position2 = window.innerWidth + containerWidth; // Segundo container começa após o primeiro
+      
+      // Inicia animação
+      animate();
+    }
+    
+    function animate() {
+      // Move ambos os containers para a esquerda
+      position1 -= SPEED;
+      position2 -= SPEED;
+      
+      // Aplica as transformações
+      container1.style.transform = `translateX(${position1}px)`;
+      container2.style.transform = `translateX(${position2}px)`;
+      
+      // Reset do container 1 quando sair completamente
+      if (position1 <= -containerWidth) {
+        position1 = position2 + containerWidth;
+      }
+      
+      // Reset do container 2 quando sair completamente
+      if (position2 <= -containerWidth) {
+        position2 = position1 + containerWidth;
+      }
+      
+      // Continua a animação
+      requestAnimationFrame(animate);
+    }
+    
+    // Inicia quando carregar
+    window.addEventListener('load', () => {
+      // Pequeno delay para garantir que o DOM está pronto
+      setTimeout(initializeAnimation, 100);
+    });
+    
+    // Reajusta no redimensionamento
+    window.addEventListener('resize', () => {
+      containerWidth = container1.scrollWidth;
+      if (position1 > window.innerWidth * 2) position1 = window.innerWidth;
+      if (position2 > window.innerWidth * 2) position2 = window.innerWidth;
+    });
+  </script>
 </body>
 </html>
-
