@@ -27,11 +27,8 @@
     }
     
     :root {
-      --stripe-green: #006400; /* verde forte */
-      --stripe-white: #ffffff; /* branco */
-      --stripe-size: 20px;     /* largura de cada listra */
       --speed: 70s;            /* velocidade mais lenta */
-      --bar-height: 60px;      /* altura da barra */
+      --bar-height: 80px;      /* altura da barra aumentada */
       --radius: 0;             /* sem arredondar para ocupar toda tela */
     }
     body {
@@ -55,45 +52,38 @@
       width: 100%;
       border-radius: var(--radius);
       box-shadow: 
-        0 15px 35px rgba(0,0,0,.4), 
-        inset 0 0 0 2px rgba(255,255,255,.2),
-        0 5px 15px rgba(0,100,0,.3);
-      background-image: repeating-linear-gradient(
-        45deg,
-        var(--stripe-green) 0,
-        var(--stripe-green) var(--stripe-size),
-        var(--stripe-white) var(--stripe-size),
-        var(--stripe-white) calc(var(--stripe-size) * 2)
-      );
-      background-size: 200% 100%;
-      animation: stripes var(--speed) linear infinite;
+        0 15px 35px rgba(0,0,0,.6), 
+        inset 0 0 0 2px rgba(255,255,255,.1);
+      background: #000000; /* Fundo preto sólido */
       position: relative;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 2px solid rgba(0,100,0,.5);
+      border: 2px solid rgba(0,0,0,.8);
     }
     .message {
       position: absolute;
       white-space: nowrap;
       font-weight: 900;
-      font-size: 24px;
-      color: #000000;
+      font-size: 60px; /* Letras bem maiores */
+      color: #ffffff; /* Cor branca */
       text-shadow: 
-        3px 3px 0px #ffffff,
-        -2px -2px 0px #ffffff,
-        2px -2px 0px #ffffff,
-        -2px 2px 0px #ffffff,
-        4px 4px 8px rgba(0,0,0,0.3),
-        0px 0px 12px rgba(255,255,255,0.8);
+        2px 2px 4px rgba(0,0,0,0.8),
+        0px 0px 8px rgba(255,255,255,0.3);
       animation: moveMessage var(--speed) linear infinite;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
       text-transform: uppercase;
       font-family: 'Arial Black', Arial, sans-serif;
-      -webkit-text-stroke: 1px #ffffff;
-      text-stroke: 1px #ffffff;
       line-height: 1.2;
+    }
+    
+    .highlight {
+      font-size: 48px; /* Letras ainda maiores para a parte destacada */
+      color: #ffff00; /* Amarelo para destacar */
+      text-shadow: 
+        2px 2px 4px rgba(0,0,0,0.9),
+        0px 0px 12px rgba(255,255,0,0.5);
     }
     
     .message::before {
@@ -103,49 +93,40 @@
       left: -2px;
       right: -2px;
       bottom: -2px;
-      background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(0,0,0,0.2) 0%, transparent 70%);
       z-index: -1;
       border-radius: 4px;
     }
     
-    /* Estilo para destacar ainda mais os emojis */
-    .message {
-      filter: drop-shadow(0 0 8px rgba(255,255,255,0.8));
-    }
-    @keyframes stripes {
-      from { background-position: 0 0; }
-      to   { background-position: 200% 0; }
-    }
     @keyframes moveMessage {
       from { transform: translateX(100vw); }
       to   { transform: translateX(-100%); }
     }
     @media (prefers-reduced-motion: reduce) {
-      .bar { animation: none; }
       .message { animation: none; position: static; transform: none; }
     }
     @media (max-width: 768px) {
       .message {
-        font-size: 18px;
-        letter-spacing: 1.5px;
-        -webkit-text-stroke: 0.8px #ffffff;
-        text-stroke: 0.8px #ffffff;
-        filter: drop-shadow(0 0 6px rgba(255,255,255,0.8));
+        font-size: 24px;
+        letter-spacing: 2px;
+      }
+      .highlight {
+        font-size: 32px;
       }
       :root {
-        --bar-height: 50px;
+        --bar-height: 60px;
       }
     }
     @media (max-width: 480px) {
       .message {
-        font-size: 14px;
-        letter-spacing: 1px;
-        -webkit-text-stroke: 0.5px #ffffff;
-        text-stroke: 0.5px #ffffff;
-        filter: drop-shadow(0 0 4px rgba(255,255,255,0.8));
+        font-size: 18px;
+        letter-spacing: 1.5px;
+      }
+      .highlight {
+        font-size: 24px;
       }
       :root {
-        --bar-height: 40px;
+        --bar-height: 50px;
       }
     }
     .bar::after {
@@ -153,7 +134,7 @@
       position: absolute;
       inset: 0;
       border-radius: inherit;
-      box-shadow: inset 0 0 30px rgba(0,0,0,.18), inset 0 0 1px rgba(255,255,255,.25);
+      box-shadow: inset 0 0 30px rgba(255,255,255,.05), inset 0 0 1px rgba(255,255,255,.1);
       pointer-events: none;
     }
   </style>
@@ -161,7 +142,7 @@
 <body>
   <main class="wrap">
     <div class="bar">
-      <div class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ COM EXCEÇÃO DA PROTEÍNA! 🥩</div>
+      <div class="message">🥗 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🚫 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰</div>
     </div>
   </main>
 </body>
