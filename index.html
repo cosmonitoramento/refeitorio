@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Barra Jirau Energia - ZERO PAUSA 🎄</title>
+  <title>Barra Jirau Energia - ZERO PAUSA 🎭</title>
   <style>
     * {
       box-sizing: border-box;
@@ -30,9 +30,11 @@
       --speed: 90s;
       --bar-height: 80px;
       --radius: 0;
-      --christmas-gold: #ffd700;
-      --christmas-red: #c41e3a;
-      --christmas-green: #0f7f4f;
+      --carnival-yellow: #FFD700;
+      --carnival-pink: #FF1493;
+      --carnival-blue: #0066FF;
+      --carnival-red: #FF0066;
+      --carnival-orange: #FF8C00;
     }
 
     body {
@@ -41,14 +43,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #1a0f2e 0%, #0a0612 100%);
+      background: linear-gradient(135deg, #1a0520 0%, #0a0310 100%);
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif;
       overflow: hidden;
       position: relative;
     }
 
-    /* Neve LEVE - apenas CSS, sem JavaScript */
-    .snowflakes {
+    /* CONFETES CARNAVAL - LEVE - apenas CSS, sem JavaScript */
+    .confetti-container {
       position: fixed;
       top: 0;
       left: 0;
@@ -59,33 +61,28 @@
       overflow: hidden;
     }
 
-    .snowflake {
+    .confetti {
       position: absolute;
       top: -10px;
-      color: white;
-      font-size: 1.2em;
+      font-size: 1.5em;
       animation: fall linear infinite;
-      opacity: 0.7;
-      text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+      opacity: 0.85;
       will-change: transform;
     }
 
-    /* Apenas 15 flocos de neve para performance */
-    .snowflake:nth-child(1) { left: 5%; animation-duration: 10s; animation-delay: 0s; }
-    .snowflake:nth-child(2) { left: 15%; animation-duration: 12s; animation-delay: 1s; }
-    .snowflake:nth-child(3) { left: 25%; animation-duration: 11s; animation-delay: 2s; }
-    .snowflake:nth-child(4) { left: 35%; animation-duration: 13s; animation-delay: 0.5s; }
-    .snowflake:nth-child(5) { left: 45%; animation-duration: 10s; animation-delay: 1.5s; }
-    .snowflake:nth-child(6) { left: 55%; animation-duration: 12s; animation-delay: 2.5s; }
-    .snowflake:nth-child(7) { left: 65%; animation-duration: 11s; animation-delay: 0.8s; }
-    .snowflake:nth-child(8) { left: 75%; animation-duration: 13s; animation-delay: 1.8s; }
-    .snowflake:nth-child(9) { left: 85%; animation-duration: 10s; animation-delay: 2.2s; }
-    .snowflake:nth-child(10) { left: 95%; animation-duration: 12s; animation-delay: 0.3s; }
-    .snowflake:nth-child(11) { left: 10%; animation-duration: 11s; animation-delay: 3s; }
-    .snowflake:nth-child(12) { left: 30%; animation-duration: 13s; animation-delay: 1.2s; }
-    .snowflake:nth-child(13) { left: 50%; animation-duration: 10s; animation-delay: 2.8s; }
-    .snowflake:nth-child(14) { left: 70%; animation-duration: 12s; animation-delay: 0.7s; }
-    .snowflake:nth-child(15) { left: 90%; animation-duration: 11s; animation-delay: 1.9s; }
+    /* Apenas 12 confetes para performance */
+    .confetti:nth-child(1) { left: 8%; animation-duration: 9s; animation-delay: 0s; }
+    .confetti:nth-child(2) { left: 18%; animation-duration: 11s; animation-delay: 1s; }
+    .confetti:nth-child(3) { left: 28%; animation-duration: 10s; animation-delay: 2s; }
+    .confetti:nth-child(4) { left: 38%; animation-duration: 12s; animation-delay: 0.5s; }
+    .confetti:nth-child(5) { left: 48%; animation-duration: 9s; animation-delay: 1.5s; }
+    .confetti:nth-child(6) { left: 58%; animation-duration: 11s; animation-delay: 2.5s; }
+    .confetti:nth-child(7) { left: 68%; animation-duration: 10s; animation-delay: 0.8s; }
+    .confetti:nth-child(8) { left: 78%; animation-duration: 12s; animation-delay: 1.8s; }
+    .confetti:nth-child(9) { left: 88%; animation-duration: 9s; animation-delay: 2.2s; }
+    .confetti:nth-child(10) { left: 13%; animation-duration: 11s; animation-delay: 3s; }
+    .confetti:nth-child(11) { left: 43%; animation-duration: 10s; animation-delay: 1.2s; }
+    .confetti:nth-child(12) { left: 73%; animation-duration: 12s; animation-delay: 2.8s; }
 
     @keyframes fall {
       0% {
@@ -93,12 +90,12 @@
         opacity: 0;
         transform: translateX(0) rotate(0deg);
       }
-      10% { opacity: 0.7; }
-      90% { opacity: 0.5; }
+      10% { opacity: 0.85; }
+      90% { opacity: 0.6; }
       100% {
         top: 110%;
         opacity: 0;
-        transform: translateX(50px) rotate(180deg);
+        transform: translateX(50px) rotate(360deg);
       }
     }
 
@@ -116,18 +113,20 @@
       border-radius: var(--radius);
       box-shadow: 
         0 10px 30px rgba(0,0,0,.8), 
-        0 0 30px rgba(255, 215, 0, 0.2);
+        0 0 30px rgba(255, 20, 147, 0.3);
       background: linear-gradient(135deg, 
-        rgba(196, 30, 58, 0.95) 0%, 
-        rgba(139, 26, 46, 0.95) 50%,
-        rgba(15, 127, 79, 0.95) 100%
+        rgba(255, 0, 102, 0.95) 0%,
+        rgba(255, 215, 0, 0.95) 25%,
+        rgba(0, 102, 255, 0.95) 50%,
+        rgba(255, 140, 0, 0.95) 75%,
+        rgba(255, 20, 147, 0.95) 100%
       );
       position: relative;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 3px solid var(--christmas-gold);
+      border: 3px solid var(--carnival-yellow);
     }
 
     /* Brilho simples - SEM animação pesada */
@@ -140,7 +139,7 @@
       bottom: 0;
       background: linear-gradient(90deg, 
         transparent 0%, 
-        rgba(255, 215, 0, 0.1) 50%, 
+        rgba(255, 255, 255, 0.15) 50%, 
         transparent 100%
       );
       pointer-events: none;
@@ -160,8 +159,8 @@
       font-size: 70px;
       color: #ffffff;
       text-shadow: 
-        2px 2px 4px rgba(0,0,0,0.9),
-        0px 0px 10px rgba(255, 215, 0, 0.3);
+        3px 3px 6px rgba(0,0,0,0.9),
+        0px 0px 15px rgba(255, 215, 0, 0.5);
       letter-spacing: 3px;
       text-transform: uppercase;
       font-family: 'Arial Black', Arial, sans-serif;
@@ -171,10 +170,19 @@
     
     .highlight {
       font-size: 70px;
-      color: var(--christmas-gold);
+      color: var(--carnival-yellow);
       text-shadow: 
-        2px 2px 4px rgba(0,0,0,1),
-        0px 0px 15px rgba(255, 255, 0, 0.6);
+        3px 3px 6px rgba(0,0,0,1),
+        0px 0px 20px rgba(255, 215, 0, 0.8);
+      animation: rainbow 3s linear infinite;
+    }
+
+    @keyframes rainbow {
+      0% { color: #FFD700; }
+      25% { color: #FF1493; }
+      50% { color: #0066FF; }
+      75% { color: #FF8C00; }
+      100% { color: #FFD700; }
     }
     
     @keyframes scroll {
@@ -184,7 +192,8 @@
     
     @media (prefers-reduced-motion: reduce) {
       .scroll-container { animation: none; }
-      .snowflake { animation: none; }
+      .confetti { animation: none; }
+      .highlight { animation: none; }
     }
 
     @media (max-width: 768px) {
@@ -220,29 +229,26 @@
       position: absolute;
       inset: 0;
       border-radius: inherit;
-      box-shadow: inset 0 0 20px rgba(255, 215, 0, 0.08);
+      box-shadow: inset 0 0 20px rgba(255, 215, 0, 0.1);
       pointer-events: none;
     }
   </style>
 </head>
 <body>
-  <!-- Neve LEVE - apenas 15 flocos, sem JavaScript -->
-  <div class="snowflakes">
-    <div class="snowflake">❄</div>
-    <div class="snowflake">❅</div>
-    <div class="snowflake">❆</div>
-    <div class="snowflake">❄</div>
-    <div class="snowflake">❅</div>
-    <div class="snowflake">❆</div>
-    <div class="snowflake">❄</div>
-    <div class="snowflake">❅</div>
-    <div class="snowflake">❆</div>
-    <div class="snowflake">❄</div>
-    <div class="snowflake">❅</div>
-    <div class="snowflake">❆</div>
-    <div class="snowflake">❄</div>
-    <div class="snowflake">❅</div>
-    <div class="snowflake">❆</div>
+  <!-- CONFETES DE CARNAVAL - apenas 12 confetes, sem JavaScript -->
+  <div class="confetti-container">
+    <div class="confetti">🎊</div>
+    <div class="confetti">🎉</div>
+    <div class="confetti">🎭</div>
+    <div class="confetti">🎪</div>
+    <div class="confetti">🎊</div>
+    <div class="confetti">🎉</div>
+    <div class="confetti">🎭</div>
+    <div class="confetti">🎪</div>
+    <div class="confetti">🎊</div>
+    <div class="confetti">🎉</div>
+    <div class="confetti">🎭</div>
+    <div class="confetti">🎪</div>
   </div>
 
   <main class="wrap">
@@ -250,12 +256,12 @@
       <div class="scroll-container">
         <!-- PRIMEIRA CÓPIA -->
         <div class="message-part">
-          🎄 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🎅 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰 ✨
+          🎭 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🎉 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰 🎊
         </div>
         
         <!-- SEGUNDA CÓPIA -->
         <div class="message-part">
-          🎄 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🎅 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰 ✨
+          🎭 ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! 🎉 NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰 🎊
         </div>
       </div>
     </div>
