@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Barra Jirau Energia</title>
+  <title>Barra Jirau Energia - Dia das Mães</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -11,11 +11,11 @@
       min-height: 100vh;
       position: relative;
       overflow: hidden;
-      background: #0a0a0a;
+      background: #1a0a14;
       font-family: system-ui, -apple-system, sans-serif;
     }
 
-    /* Emojis caindo robustos - Tema Jogos */
+    /* Emojis caindo - Tema Dia das Mães */
     .floaties {
       position: fixed;
       inset: 0;
@@ -28,18 +28,18 @@
       position: absolute;
       top: -120px;
       animation: fall linear infinite;
-      opacity: 0.85;
+      opacity: 0.9;
       filter: drop-shadow(0 6px 12px rgba(0,0,0,0.8));
     }
 
     @keyframes fall {
       0%   { top: -120px; opacity: 0; transform: translateX(0) rotate(0deg); }
-      10%  { opacity: 0.9; }
-      90%  { opacity: 0.75; }
+      10%  { opacity: 0.95; }
+      90%  { opacity: 0.8; }
       100% { top: 110vh; opacity: 0; transform: translateX(var(--drift)) rotate(var(--rotate)); }
     }
 
-    /* BARRA PRINCIPAL */
+    /* BARRA PRINCIPAL - Tema Dia das Mães */
     .bar {
       height: 80px;
       width: 100%;
@@ -51,16 +51,16 @@
       display: flex;
       align-items: center;
       background: linear-gradient(135deg,
-        #c25800 0%, #d4780a 8%, #f0c020 18%, #e8883a 28%,
-        #d84888 38%, #a030d0 50%, #3888e8 62%, #20c870 72%,
-        #f0c020 82%, #e8883a 90%, #c25800 100%);
+        #ff1493 0%, #ff69b4 10%, #ffb6c1 20%, #ff85a2 30%,
+        #d63384 40%, #c71585 50%, #ff1493 60%, #ff69b4 70%,
+        #ffc0cb 80%, #ff85a2 90%, #ff1493 100%);
       background-size: 300% 100%;
       animation: gradientShift 8s linear infinite;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.9),
-                  inset 0 1px 0 rgba(255,255,255,0.25),
+      box-shadow: 0 8px 30px rgba(255, 20, 147, 0.5),
+                  inset 0 1px 0 rgba(255,255,255,0.35),
                   inset 0 -1px 0 rgba(0,0,0,0.4);
-      border-top: 4px solid #F4A011;
-      border-bottom: 4px solid #FB923C;
+      border-top: 4px solid #ffd1dc;
+      border-bottom: 4px solid #ff69b4;
       z-index: 10;
     }
 
@@ -82,7 +82,7 @@
       font-weight: 900;
       font-size: 56px;
       color: #ffffff;
-      text-shadow: 3px 3px 0 #000, 0 0 20px rgba(244, 160, 17, 0.6);
+      text-shadow: 3px 3px 0 #8b0046, 0 0 20px rgba(255, 182, 193, 0.8);
       letter-spacing: 4px;
       text-transform: uppercase;
       padding-right: 620px;
@@ -90,8 +90,8 @@
     }
 
     .highlight {
-      color: #F4A011;
-      text-shadow: 3px 3px 0 #000, 0 0 25px rgba(244, 160, 17, 0.95);
+      color: #fff5b8;
+      text-shadow: 3px 3px 0 #8b0046, 0 0 25px rgba(255, 215, 0, 0.95);
     }
 
     @keyframes scroll {
@@ -107,7 +107,7 @@
 </head>
 <body>
 
-  <!-- Emojis caindo - Tema Jogos -->
+  <!-- Emojis caindo - Tema Dia das Mães -->
   <div class="floaties" id="float-wrap"></div>
 
   <!-- BARRA PRINCIPAL -->
@@ -127,8 +127,8 @@
   </div>
 
   <script>
-    // Emojis caindo robustos - Tema dos Jogos
-    const icons = ['⚽','🏀','🏐','🏆','🥇','🏅','🎖️','🏸','🎾','🏊','🚴','🏃','💪','🔥','🏅'];
+    // Emojis caindo - Tema Dia das Mães
+    const icons = ['💐','🌹','🌷','🌸','💝','💖','💕','💗','💞','💓','👩‍👧','👩‍👦','👩‍👧‍👦','🎀','💌','🥰','❤️','🌺','💟','✨'];
     const fw = document.getElementById('float-wrap');
 
     for(let i = 0; i < 32; i++) {
