@@ -3,19 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Barra Jirau Energia - Dia das Mães</title>
+  <title>Barra Jirau Energia - Semana de Ética</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
       min-height: 100vh;
       position: relative;
       overflow: hidden;
-      background: #1a0a14;
+      background: linear-gradient(135deg, #FF8C42 0%, #FFB366 50%, #FF8C42 100%);
       font-family: system-ui, -apple-system, sans-serif;
     }
 
-    /* Emojis caindo - Tema Dia das Mães */
+    /* Emojis e Palavras caindo - Tema Ética */
     .floaties {
       position: fixed;
       inset: 0;
@@ -23,23 +22,24 @@
       z-index: 9999;
       overflow: hidden;
     }
-
     .floaty {
       position: absolute;
       top: -120px;
       animation: fall linear infinite;
-      opacity: 0.9;
-      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.8));
+      opacity: 0.85;
+      color: white;
+      text-shadow: 0 0 8px #0033A0;
+      font-weight: 900;
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.6));
     }
-
     @keyframes fall {
-      0%   { top: -120px; opacity: 0; transform: translateX(0) rotate(0deg); }
-      10%  { opacity: 0.95; }
-      90%  { opacity: 0.8; }
+      0% { top: -120px; opacity: 0; transform: translateX(0) rotate(0deg); }
+      10% { opacity: 0.95; }
+      90% { opacity: 0.8; }
       100% { top: 110vh; opacity: 0; transform: translateX(var(--drift)) rotate(var(--rotate)); }
     }
 
-    /* BARRA PRINCIPAL - Tema Dia das Mães */
+    /* BARRA PRINCIPAL - Tema Ética Jirau */
     .bar {
       height: 80px;
       width: 100%;
@@ -51,19 +51,17 @@
       display: flex;
       align-items: center;
       background: linear-gradient(135deg,
-        #ff1493 0%, #ff69b4 10%, #ffb6c1 20%, #ff85a2 30%,
-        #d63384 40%, #c71585 50%, #ff1493 60%, #ff69b4 70%,
-        #ffc0cb 80%, #ff85a2 90%, #ff1493 100%);
+        #0033A0 0%, #FF8C42 25%, #0033A0 50%, 
+        #FF8C42 75%, #0033A0 100%);
       background-size: 300% 100%;
-      animation: gradientShift 8s linear infinite;
-      box-shadow: 0 8px 30px rgba(255, 20, 147, 0.5),
-                  inset 0 1px 0 rgba(255,255,255,0.35),
+      animation: gradientShift 10s linear infinite;
+      box-shadow: 0 8px 30px rgba(255,140,66,0.6),
+                  inset 0 1px 0 rgba(255,255,255,0.3),
                   inset 0 -1px 0 rgba(0,0,0,0.4);
-      border-top: 4px solid #ffd1dc;
-      border-bottom: 4px solid #ff69b4;
+      border-top: 5px solid #FFB366;
+      border-bottom: 5px solid #FF8C42;
       z-index: 10;
     }
-
     @keyframes gradientShift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
@@ -77,28 +75,24 @@
       animation: scroll 85s linear infinite;
       will-change: transform;
     }
-
     .message-part {
       font-weight: 900;
-      font-size: 56px;
+      font-size: 48px;
       color: #ffffff;
-      text-shadow: 3px 3px 0 #8b0046, 0 0 20px rgba(255, 182, 193, 0.8);
-      letter-spacing: 4px;
+      text-shadow: 3px 3px 0 #002266, 0 0 20px rgba(255,140,66,0.9);
+      letter-spacing: 3px;
       text-transform: uppercase;
       padding-right: 620px;
       line-height: 1;
     }
-
     .highlight {
-      color: #fff5b8;
-      text-shadow: 3px 3px 0 #8b0046, 0 0 25px rgba(255, 215, 0, 0.95);
+      color: #FFEB3B;
+      text-shadow: 3px 3px 0 #002266, 0 0 25px rgba(255,235,59,0.95);
     }
-
     @keyframes scroll {
-      0%   { transform: translateX(0); }
+      0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
-
     @media (max-width: 768px) {
       .message-part { font-size: 26px; letter-spacing: 2px; padding-right: 180px; }
       .bar { height: 62px; }
@@ -106,8 +100,7 @@
   </style>
 </head>
 <body>
-
-  <!-- Emojis caindo - Tema Dia das Mães -->
+  <!-- Itens caindo (ícones + palavras de ética) -->
   <div class="floaties" id="float-wrap"></div>
 
   <!-- BARRA PRINCIPAL -->
@@ -115,35 +108,40 @@
     <div class="scroll-container">
       <!-- Primeira cópia -->
       <div class="message-part">
-        ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ 
+        ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌
         <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰
       </div>
       <!-- Segunda cópia para loop contínuo -->
       <div class="message-part">
-        ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌ 
+        ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌
         <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰
       </div>
     </div>
   </div>
 
   <script>
-    // Emojis caindo - Tema Dia das Mães
-    const icons = ['💐','🌹','🌷','🌸','💝','💖','💕','💗','💞','💓','👩‍👧','👩‍👦','👩‍👧‍👦','🎀','💌','🥰','❤️','🌺','💟','✨'];
-    const fw = document.getElementById('float-wrap');
+    // Itens caindo - Tema Ética Jirau
+    const ethicsItems = [
+      '💡','❤️','🛑','⚖️','🤝','🌟','🔍','✅','🧠',
+      'ÉTICA','INTEGRIDADE','RESPEITO','HONESTIDADE',
+      'TRANSPARÊNCIA','PARE','PENSE','JIRAU'
+    ];
 
-    for(let i = 0; i < 32; i++) {
+    const fw = document.getElementById('float-wrap');
+    
+    for(let i = 0; i < 35; i++) {
       const d = document.createElement('div');
       d.className = 'floaty';
-      d.textContent = icons[Math.floor(Math.random() * icons.length)];
+      d.textContent = ethicsItems[Math.floor(Math.random() * ethicsItems.length)];
       
-      const size = Math.random() * 1.9 + 1.5;
+      const size = Math.random() * 1.8 + 1.6;
       d.style.fontSize = size + 'em';
       d.style.left = Math.random() * 100 + '%';
-      d.style.animationDuration = (Math.random() * 8 + 12) + 's';
-      d.style.animationDelay = '-' + (Math.random() * 22) + 's';
+      d.style.animationDuration = (Math.random() * 9 + 13) + 's';
+      d.style.animationDelay = '-' + (Math.random() * 25) + 's';
       
-      d.style.setProperty('--drift', (Math.random() * 110 - 55) + 'px');
-      d.style.setProperty('--rotate', (Math.random() * 800 - 400) + 'deg');
+      d.style.setProperty('--drift', (Math.random() * 120 - 60) + 'px');
+      d.style.setProperty('--rotate', (Math.random() * 720 - 360) + 'deg');
       
       fw.appendChild(d);
     }
