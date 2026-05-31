@@ -3,148 +3,225 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Barra Jirau Energia - Semana de Ética</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@700&display=swap');
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       min-height: 100vh;
+      overflow: hidden;
+      background: #0a1a0a;
+      font-family: 'Bebas Neue', 'Oswald', sans-serif;
       position: relative;
-      overflow: hidden;
-      background: linear-gradient(135deg, #FF8C42 0%, #FFB366 50%, #FF8C42 100%);
-      font-family: system-ui, -apple-system, sans-serif;
     }
-
-    /* Emojis e Palavras caindo - Tema Ética */
-    .floaties {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 9999;
-      overflow: hidden;
+    .grass {
+      position: fixed; inset: 0;
+      background: repeating-linear-gradient(
+        180deg,
+        #1a5c2a 0px, #1a5c2a 52px,
+        #1e6830 52px, #1e6830 104px
+      );
+      z-index: 0;
     }
+    .center-circle {
+      position: fixed; left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.09);
+      z-index: 1; pointer-events: none;
+    }
+    .center-line {
+      position: fixed; left: 0; top: 50%; transform: translateY(-50%);
+      width: 100%; height: 2px;
+      background: rgba(255,255,255,0.07);
+      z-index: 1; pointer-events: none;
+    }
+    .spots { position: fixed; inset: 0; z-index: 2; pointer-events: none; overflow: hidden; }
+    .spot {
+      position: absolute; top: -80px;
+      width: 280px; height: 100vh;
+      transform-origin: top center;
+      background: linear-gradient(180deg, rgba(255,255,220,0.18) 0%, transparent 65%);
+      border-radius: 0 0 50% 50%;
+      filter: blur(18px);
+    }
+    .spot1 { left: 8%;  transform: rotate(14deg);  animation: sp 7s ease-in-out infinite alternate; }
+    .spot2 { left: 28%; transform: rotate(-9deg);  animation: sp 9s ease-in-out infinite alternate-reverse; }
+    .spot3 { right: 8%; transform: rotate(-14deg); animation: sp 6s ease-in-out infinite alternate; }
+    .spot4 { right:28%; transform: rotate(9deg);   animation: sp 8s ease-in-out infinite alternate-reverse; }
+    @keyframes sp { 0%{opacity:0.5;} 100%{opacity:1;} }
+    .confetti { position: fixed; inset: 0; pointer-events: none; z-index: 4; overflow: hidden; }
+    .conf { position: absolute; top: -20px; animation: confFall linear infinite; opacity: 0; }
+    @keyframes confFall {
+      0%   { top:-20px; opacity:0; transform:rotate(0deg) translateX(0); }
+      8%   { opacity:1; }
+      100% { top:110vh; opacity:0; transform:rotate(var(--rot)) translateX(var(--sx)); }
+    }
+    .floaties { position: fixed; inset: 0; pointer-events: none; z-index: 5; overflow: hidden; }
     .floaty {
-      position: absolute;
-      top: -120px;
-      animation: fall linear infinite;
-      opacity: 0.85;
-      color: white;
-      text-shadow: 0 0 8px #0033A0;
-      font-weight: 900;
-      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.6));
+      position: absolute; top: -160px;
+      display: flex; flex-direction: column; align-items: center; gap: 5px;
+      animation: fallFlag linear forwards; opacity: 0;
     }
-    @keyframes fall {
-      0% { top: -120px; opacity: 0; transform: translateX(0) rotate(0deg); }
-      10% { opacity: 0.95; }
-      90% { opacity: 0.8; }
-      100% { top: 110vh; opacity: 0; transform: translateX(var(--drift)) rotate(var(--rotate)); }
+    @keyframes fallFlag {
+      0%  { top:-160px; opacity:0; }
+      6%  { opacity:1; }
+      88% { opacity:1; }
+      100%{ top:105vh; opacity:0; }
     }
-
-    /* BARRA PRINCIPAL - Tema Ética Jirau */
+    .floaty .flag { font-size: 3.2rem; filter: drop-shadow(0 6px 14px rgba(0,0,0,0.9)); animation: wave 2.2s ease-in-out infinite; }
+    @keyframes wave { 0%,100%{transform:rotate(-5deg) scale(1);} 50%{transform:rotate(5deg) scale(1.08);} }
+    .floaty .cname {
+      font-size: 0.7rem; letter-spacing: 2.5px; color: #fff;
+      background: rgba(0,0,0,0.65); padding: 2px 10px; border-radius: 4px;
+      font-family: 'Oswald', sans-serif;
+    }
     .bar {
-      height: 80px;
-      width: 100%;
-      position: fixed;
-      top: 50%;
-      left: 0;
+      position: fixed; top: 50%; left: 0;
       transform: translateY(-50%);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      background: linear-gradient(135deg,
-        #0033A0 0%, #FF8C42 25%, #0033A0 50%, 
-        #FF8C42 75%, #0033A0 100%);
-      background-size: 300% 100%;
-      animation: gradientShift 10s linear infinite;
-      box-shadow: 0 8px 30px rgba(255,140,66,0.6),
-                  inset 0 1px 0 rgba(255,255,255,0.3),
-                  inset 0 -1px 0 rgba(0,0,0,0.4);
-      border-top: 5px solid #FFB366;
-      border-bottom: 5px solid #FF8C42;
-      z-index: 10;
+      width: 100%; height: 88px;
+      z-index: 100; overflow: hidden;
+      display: flex; align-items: center;
+      background: linear-gradient(90deg,
+        #004d20 0%, #1a6e30 10%, #006B3F 25%,
+        #B8860B 38%, #FFD700 50%, #B8860B 62%,
+        #006B3F 75%, #1a6e30 90%, #004d20 100%
+      );
+      background-size: 250% 100%;
+      animation: barShift 6s linear infinite;
+      border-top: 4px solid #FFD700;
+      border-bottom: 4px solid #FFD700;
+      box-shadow: 0 0 40px rgba(255,215,0,0.55), 0 0 80px rgba(255,215,0,0.2),
+                  inset 0 2px 0 rgba(255,255,255,0.18), inset 0 -2px 0 rgba(0,0,0,0.35);
     }
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
+    @keyframes barShift {
+      0%  { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+      100%{ background-position: 0% 50%; }
     }
-
+    .bar::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.12) 0%, transparent 40%, transparent 60%, rgba(0,0,0,0.2) 100%);
+      pointer-events: none; z-index: 1;
+    }
+    .bar-ball {
+      position: absolute; z-index: 2; font-size: 2rem;
+      animation: ballSpin 4s linear infinite;
+      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.8));
+    }
+    .bar-ball.left  { left: 12px; }
+    .bar-ball.right { right: 12px; animation-direction: reverse; }
+    @keyframes ballSpin { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+    .scroll-wrap {
+      flex: 1; overflow: hidden; position: relative; z-index: 2;
+      mask-image: linear-gradient(90deg, transparent 0%, #000 4%, #000 96%, transparent 100%);
+    }
     .scroll-container {
-      display: flex;
-      align-items: center;
+      display: flex; align-items: center;
       white-space: nowrap;
-      animation: scroll 85s linear infinite;
+      animation: scroll 80s linear infinite;
       will-change: transform;
     }
     .message-part {
-      font-weight: 900;
-      font-size: 48px;
-      color: #ffffff;
-      text-shadow: 3px 3px 0 #002266, 0 0 20px rgba(255,140,66,0.9);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      padding-right: 620px;
-      line-height: 1;
+      font-size: 50px; font-weight: 900; color: #fff;
+      text-shadow: 3px 3px 0 #004d20, -1px -1px 0 #003a18, 0 0 30px rgba(255,215,0,0.7);
+      letter-spacing: 3px; text-transform: uppercase;
+      padding-right: 600px; line-height: 1;
     }
     .highlight {
-      color: #FFEB3B;
-      text-shadow: 3px 3px 0 #002266, 0 0 25px rgba(255,235,59,0.95);
+      color: #FFD700;
+      text-shadow: 3px 3px 0 #004d20, 0 0 30px rgba(255,215,0,1), 0 0 60px rgba(255,215,0,0.5);
     }
     @keyframes scroll {
-      0% { transform: translateX(0); }
+      0%   { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
     @media (max-width: 768px) {
-      .message-part { font-size: 26px; letter-spacing: 2px; padding-right: 180px; }
-      .bar { height: 62px; }
+      .bar { height: 64px; }
+      .message-part { font-size: 28px; padding-right: 200px; letter-spacing: 2px; }
+      .bar-ball { font-size: 1.4rem; }
     }
   </style>
 </head>
 <body>
-  <!-- Itens caindo (ícones + palavras de ética) -->
-  <div class="floaties" id="float-wrap"></div>
+  <div class="grass"></div>
+  <div class="center-circle"></div>
+  <div class="center-line"></div>
+  <div class="spots">
+    <div class="spot spot1"></div>
+    <div class="spot spot2"></div>
+    <div class="spot spot3"></div>
+    <div class="spot spot4"></div>
+  </div>
+  <div class="confetti" id="conf"></div>
+  <div class="floaties" id="fw"></div>
 
-  <!-- BARRA PRINCIPAL -->
   <div class="bar">
-    <div class="scroll-container">
-      <!-- Primeira cópia -->
-      <div class="message-part">
-        ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌
-        <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰
-      </div>
-      <!-- Segunda cópia para loop contínuo -->
-      <div class="message-part">
-        ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌
-        <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰
+    <div class="bar-ball left">⚽</div>
+    <div class="scroll-wrap">
+      <div class="scroll-container">
+        <div class="message-part">
+          ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌
+          <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰
+        </div>
+        <div class="message-part">
+          ALIMENTAÇÃO SAUDÁVEL, 💪 CORPO E MENTE SAUDÁVEIS! NÃO DESPERDICE COMIDA, 🍽️ SE PRECISAR, PODE REPETIR O PRATO, ❌
+          <span class="highlight">COM EXCEÇÃO DA PROTEÍNA E SOBREMESA!</span> 🥩🍰
+        </div>
       </div>
     </div>
+    <div class="bar-ball right">⚽</div>
   </div>
 
   <script>
-    // Itens caindo - Tema Ética Jirau
-    const ethicsItems = [
-      '💡','❤️','🛑','⚖️','🤝','🌟','🔍','✅','🧠',
-      'ÉTICA','INTEGRIDADE','RESPEITO','HONESTIDADE',
-      'TRANSPARÊNCIA','PARE','PENSE','JIRAU'
+    const colors = ['#FFD700','#ffffff','#006B3F','#FF4444','#4488FF','#FF44FF','#FF8C00'];
+    const confEl = document.getElementById('conf');
+    for (let i = 0; i < 40; i++) {
+      const c = document.createElement('div');
+      c.className = 'conf';
+      c.style.left = Math.random() * 100 + '%';
+      c.style.background = colors[Math.floor(Math.random() * colors.length)];
+      c.style.width  = (Math.random() * 7 + 4) + 'px';
+      c.style.height = (Math.random() * 12 + 5) + 'px';
+      c.style.animationDuration = (Math.random() * 9 + 9) + 's';
+      c.style.animationDelay   = '-' + (Math.random() * 18) + 's';
+      c.style.setProperty('--rot', (Math.random() * 720 - 360) + 'deg');
+      c.style.setProperty('--sx',  (Math.random() * 90 - 45) + 'px');
+      c.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+      confEl.appendChild(c);
+    }
+
+    const paises = [
+      {flag:'🇧🇷', name:'BRASIL'}, {flag:'🇦🇷', name:'ARGENTINA'},
+      {flag:'🇫🇷', name:'FRANÇA'}, {flag:'🇩🇪', name:'ALEMANHA'},
+      {flag:'🇵🇹', name:'PORTUGAL'}, {flag:'🇪🇸', name:'ESPANHA'},
+      {flag:'🏴󠁧󠁢󠁥󠁮󠁧󠁿', name:'INGLATERRA'}, {flag:'🇮🇹', name:'ITÁLIA'},
+      {flag:'🇺🇾', name:'URUGUAI'}, {flag:'🇳🇱', name:'HOLANDA'},
+      {flag:'🇯🇵', name:'JAPÃO'}, {flag:'🇲🇦', name:'MARROCOS'},
+      {flag:'🇺🇸', name:'EUA'}, {flag:'🇧🇪', name:'BÉLGICA'},
+      {flag:'🇨🇦', name:'CANADÁ'}, {flag:'🇲🇽', name:'MÉXICO'},
     ];
 
-    const fw = document.getElementById('float-wrap');
-    
-    for(let i = 0; i < 35; i++) {
+    const fw = document.getElementById('fw');
+    let ativos = 0;
+    const MAX = 3;
+
+    function createFlag() {
+      if (ativos >= MAX) return;
+      ativos++;
+      const p = paises[Math.floor(Math.random() * paises.length)];
       const d = document.createElement('div');
       d.className = 'floaty';
-      d.textContent = ethicsItems[Math.floor(Math.random() * ethicsItems.length)];
-      
-      const size = Math.random() * 1.8 + 1.6;
-      d.style.fontSize = size + 'em';
-      d.style.left = Math.random() * 100 + '%';
-      d.style.animationDuration = (Math.random() * 9 + 13) + 's';
-      d.style.animationDelay = '-' + (Math.random() * 25) + 's';
-      
-      d.style.setProperty('--drift', (Math.random() * 120 - 60) + 'px');
-      d.style.setProperty('--rotate', (Math.random() * 720 - 360) + 'deg');
-      
+      d.innerHTML = `<div class="flag">${p.flag}</div><div class="cname">${p.name}</div>`;
+      const dur = Math.random() * 6 + 17;
+      d.style.left = (Math.random() * 82 + 6) + '%';
+      d.style.animationDuration = dur + 's';
       fw.appendChild(d);
+      setTimeout(() => { d.remove(); ativos--; }, dur * 1000 + 300);
     }
+
+    createFlag();
+    setInterval(createFlag, 5000);
   </script>
 </body>
 </html>
